@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2c3e50</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#7E7B52</color>
+    <color name="colorBg">#aaa69d</color>
+    <color name="colorSwanWhite">#f7f1e3</color>
+    <color name="colorBg2">#bdc3c7</color>
+
+    <color name="colorGrade0org">#318B37</color>
+    <color name="colorGrade1org">#EDFC36</color>
+    <color name="colorGrade2org">#2049D5</color>
+    <color name="colorGrade3org">#A6A6A6</color>
+    <color name="colorGrade4org">#F7611F</color>
+    <color name="colorGrade5org">#FA1CA9</color>
+    <color name="colorGrade6org">#E72429</color>
+
+    <color name="colorGrade0">#27ae60</color>
+    <color name="colorGrade1">#f1c40f</color>
+    <color name="colorGrade2">#2980b9</color>
+    <color name="colorGrade3">#95a5a6</color>
+    <color name="colorGrade4">#e67e22</color>
+    <color name="colorGrade5">#fd79a8</color>
+    <color name="colorGrade6">#c0392b</color>
+</resources>

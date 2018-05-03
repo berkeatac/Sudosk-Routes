@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Sudosk Routes</string>
+    <string name="add_route">Add Route</string>
+    <string name="creator_name">Creator Name:</string>
+    <string name="title">Title</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="grade">Grade:</string>
+    <string name="uploading_route">Uploading Route</string>
+    <string name="routes">Routes</string>
+    <string name="_0_3c">0 - 3C+</string>
+    <string name="_4a_4c">4A - 4C+</string>
+    <string name="_5a_5b">5A - 5B+</string>
+    <string name="_5c_6a">5C - 6A+</string>
+    <string name="_6b_6c">6B - 6C+</string>
+    <string name="_7a_7b">7A - 7B</string>
+    <string name="_7b_harder">7B+ - harder</string>
+    <string name="loading_routes">Loading Routes</string>
+</resources>
