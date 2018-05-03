@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.berkeatac.sudoskroutes.Adapters.RouteListAdapter;
@@ -38,6 +39,7 @@ public class RouteListActivity extends AppCompatActivity implements RouteListCli
         mRecyclerView = findViewById(R.id.routeList);
 
         getSupportActionBar().setTitle(Grade.values()[grade].toString());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(Grade.values()[grade].getColorId())));
 
 
@@ -60,6 +62,17 @@ public class RouteListActivity extends AppCompatActivity implements RouteListCli
         mAdapter = new RouteListAdapter(gradedRouteList, this);
         mRecyclerView.setAdapter(mAdapter);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

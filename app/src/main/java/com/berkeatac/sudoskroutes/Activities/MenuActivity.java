@@ -45,6 +45,7 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         getSupportActionBar().setTitle("Choose Grade");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RelativeLayout progressLayout = findViewById(R.id.progressMenu);
         LinearLayout menuLayout = findViewById(R.id.rootMenu);
@@ -117,6 +118,11 @@ public class MenuActivity extends AppCompatActivity {
             Intent intent = new Intent(this, AddRouteActivity.class);
             startActivity(intent);
         }
+
+        if (id == android.R.id.home) {
+            onBackPressed();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
