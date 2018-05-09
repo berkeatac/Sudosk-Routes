@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.berkeatac.sudoskroutes.Model.Grade;
 import com.berkeatac.sudoskroutes.Model.RouteObject;
@@ -26,6 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.toptas.fancyshowcase.FancyShowCaseView;
+
 public class MenuActivity extends AppCompatActivity {
 
     private static String TAG = "BAKBAK";
@@ -38,11 +42,13 @@ public class MenuActivity extends AppCompatActivity {
     private TextView grade6;
     private DatabaseReference database;
     private List<RouteObject> routeList = new ArrayList<>();
+    private MyApplication app;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        app = (MyApplication) getApplicationContext();
 
         getSupportActionBar().setTitle("Choose Grade");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -54,6 +60,8 @@ public class MenuActivity extends AppCompatActivity {
 
         MyApplication app = (MyApplication) getApplicationContext();
 
+        showCaseDisplay();
+
         grade0 = findViewById(R.id.grade0);
         grade1 = findViewById(R.id.grade1);
         grade2 = findViewById(R.id.grade2);
@@ -64,7 +72,6 @@ public class MenuActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance().getReference();
 
-        Log.d(TAG, "loading");
         progressLayout.setVisibility(View.VISIBLE);  //To show ProgressBar
         menuLayout.setVisibility(View.GONE);
 
@@ -88,7 +95,6 @@ public class MenuActivity extends AppCompatActivity {
                 }
                 app.setRouteList(routeList);
                 setListeners();
-                Log.d(TAG, "loaded");
                 progressLayout.setVisibility(View.GONE);  //To show ProgressBar
                 menuLayout.setVisibility(View.VISIBLE);
             }
@@ -115,8 +121,12 @@ public class MenuActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.plusButton) {
-            Intent intent = new Intent(this, AddRouteActivity.class);
-            startActivity(intent);
+            if (app.getUserName().equals("")){
+                Toast.makeText(getApplicationContext(), "Log in to add routes", Toast.LENGTH_SHORT).show();
+            } else {
+                Intent intent = new Intent(this, AddRouteActivity.class);
+                startActivity(intent);
+            }
         }
 
         if (id == android.R.id.home) {
@@ -165,4 +175,18 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
 
+    private void showCaseDisplay() {
+        if (app.isFirstTime()) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            int width = displayMetrics.widthPixels;
+            new FancyShowCaseView.Builder(this)
+                    .title("Click on + to add a route!")
+                    .focusRectAtPosition(width-100, 100,  160, 160)
+                    .roundRectRadius(60)
+                    .build()
+                    .show();
+        }
+        app.setFirstTime(false);
+    }
 }

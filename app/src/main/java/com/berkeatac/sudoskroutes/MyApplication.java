@@ -10,6 +10,9 @@ import java.util.List;
 public class MyApplication extends Application {
 
     private List<RouteObject> routeList = new ArrayList<>();
+    private String userName = "";
+    private Boolean isLoggedIn = false;
+    private Boolean firstTime = true;
 
     public void setRouteList(List<RouteObject> routeList) {
         this.routeList = routeList;
@@ -19,8 +22,6 @@ public class MyApplication extends Application {
         return routeList;
     }
 
-    private String userName = null;
-
     public void setUserName(String name) {
         this.userName = name;
     }
@@ -28,4 +29,24 @@ public class MyApplication extends Application {
     public String getUserName() {
         return userName;
     }
+
+    public Boolean getLoggedIn() {
+        return isLoggedIn;
+    }
+
+    public void setLoggedIn(Boolean loggedIn) {
+        isLoggedIn = loggedIn;
+    }
+
+    public Boolean isFirstTime() {
+        return firstTime;
+    }
+
+    public void setFirstTime(Boolean firstTime) {
+        this.firstTime = firstTime;
+    }
+
+
+
+
 }

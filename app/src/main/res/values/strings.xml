@@ -16,4 +16,6 @@
     <string name="_7a_7b">7A - 7B</string>
     <string name="_7b_harder">7B+ - harder</string>
     <string name="loading_routes">Loading Routes</string>
+
+    <string name="default_web_client_id_ownCreated">408976207986-upncseo79m0b7eddnqkchtmpul4sndd6.apps.googleusercontent.com</string>
 </resources>
