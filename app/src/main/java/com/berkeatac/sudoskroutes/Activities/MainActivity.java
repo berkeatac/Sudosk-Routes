@@ -158,5 +158,6 @@ public class MainActivity extends AppCompatActivity {
             signInButton.setVisibility(View.GONE);
             signOutButton.setVisibility(View.VISIBLE);
         }
+        app.setCurrentUser(user);
     }
 }

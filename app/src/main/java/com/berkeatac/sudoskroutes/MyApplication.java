@@ -3,6 +3,7 @@ package com.berkeatac.sudoskroutes;
 import android.app.Application;
 
 import com.berkeatac.sudoskroutes.Model.RouteObject;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ public class MyApplication extends Application {
     private String userName = "";
     private Boolean isLoggedIn = false;
     private Boolean firstTime = true;
+    private FirebaseUser currentUser;
 
     public void setRouteList(List<RouteObject> routeList) {
         this.routeList = routeList;
@@ -46,7 +48,11 @@ public class MyApplication extends Application {
         this.firstTime = firstTime;
     }
 
+    public FirebaseUser getCurrentUser() {
+        return currentUser;
+    }
 
-
-
+    public void setCurrentUser(FirebaseUser currentUser) {
+        this.currentUser = currentUser;
+    }
 }

@@ -93,7 +93,7 @@ public class AddRouteActivity extends AppCompatActivity {
 
             // send the entered data to firebase
             if (!titleEditText.getText().toString().equals("") && isImageSelected && !creatorEditText.getText().equals("")) {
-                RouteObject obj = new RouteObject("1", titleEditText.getText().toString(),
+                RouteObject obj = new RouteObject(app.getCurrentUser().getUid(), titleEditText.getText().toString(),
                         creatorEditText.getText().toString(), dateTextView.getText().toString(),
                         gradeSpinner.getSelectedItemPosition(), descEditText.getText().toString(),
                         null);
@@ -120,6 +120,7 @@ public class AddRouteActivity extends AppCompatActivity {
                     addLayout.setVisibility(View.VISIBLE);
 
                     Intent intent = new Intent(this, MenuActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 });
 
